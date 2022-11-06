@@ -17,16 +17,15 @@
   </div>
   <div class="container">
     <div class="row">
-      <form action="/tipos" method="POST">
+      <form action="/tipos" method="POST"
+      th:object="${dtoTipodeProcesso}">
         <div class="mb-3">
-          <label class="form-label">Tipo de processo
-            <input class="form-control" type="text" name="nome">
-          </label>
-          <div></div>
-        </div>
+          <label class="form-label">Tipo de processo</label>
+            <input class="form-control" th:errorclass="is-invalid" type="text" th:field="*{nome}">
+          <div class="invalid-feedback" th:errors="*{nome}"></div>
         </div>
         <button class="btn btn-primary" type="submit">Submeter</button>
-        <a type="button" class="btn btn-outline-danger" href="javascript:history.back()">Voltar</a>
+        <a type="button" class="btn btn-outline-danger" href="/tipos">Voltar</a>
       </form>
     </div>
   </div>
