@@ -1,14 +1,11 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="pt">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tipos de Processo</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-</head>
+
+<head th:replace="~{fragmentos :: head('Lista de tipos')}"></head>
+
 <body>
+<header th:replace="~{fragmentos :: header('Tipos de Processo')}"></header>
 <div class="container mt-4">
-  <h1>Atualmente existem os seguintes tipos</h1>
   <div class="row">
     <div class="col-12">
       <table class="table table-hover">
