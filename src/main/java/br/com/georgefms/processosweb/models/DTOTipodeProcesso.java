@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 
 //Clase responsável por evitar envios indesejados pelo lado do servidor
 //DTO -> DATA TRANSFERING OBJECT
-public class DTOTipodeProcesso {
+public class DtoTipodeProcesso {
     @NotNull
     @NotBlank
     private String nome;

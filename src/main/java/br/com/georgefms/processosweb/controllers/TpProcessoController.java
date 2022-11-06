@@ -1,6 +1,6 @@
 package br.com.georgefms.processosweb.controllers;
 
-import br.com.georgefms.processosweb.models.DTOTipodeProcesso;
+import br.com.georgefms.processosweb.models.DtoTipodeProcesso;
 import br.com.georgefms.processosweb.models.TipodeProcesso;
 import br.com.georgefms.processosweb.repositories.TipodeProcessoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,22 +30,22 @@ public class TpProcessoController {
 
     //Inicio da criacao de um novo registro
     @GetMapping("/tipos/new")
-    public ModelAndView newTipo(){
+    public ModelAndView newTipo(DtoTipodeProcesso dtoTipodeProcessoRequisicao){
         return new ModelAndView("tipos/new");
 
     }
 
     //Submissão do registro
     @PostMapping("/tipos")
-    public String Create(@Valid DTOTipodeProcesso dtoTipodeProcesso, BindingResult bindingResult){
-        System.out.println(dtoTipodeProcesso);
+    public ModelAndView Create(@Valid DtoTipodeProcesso dtoTipodeProcessoRequisicao, BindingResult bindingResult){
+        System.out.println(dtoTipodeProcessoRequisicao);
         if (bindingResult.hasErrors()){
             System.out.println("###### EXISTE ERRO NO CAMPO #####");
-            return "redirect:/tipos/new";
+            return new ModelAndView("tipos/new");
         }
-        TipodeProcesso tipodeProcesso = dtoTipodeProcesso.toTipoProcesso();
+        TipodeProcesso tipodeProcesso = dtoTipodeProcessoRequisicao.toTipoProcesso();
         this.tipodeProcessoRepository.save(tipodeProcesso);
-        return "redirect:/tipos";
+        return new ModelAndView( "redirect:/tipos");
     }
 
 }
