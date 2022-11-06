@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class TpProcessoController {
@@ -46,6 +48,18 @@ public class TpProcessoController {
         TipodeProcesso tipodeProcesso = dtoTipodeProcessoRequisicao.toTipoProcesso();
         this.tipodeProcessoRepository.save(tipodeProcesso);
         return new ModelAndView( "redirect:/tipos");
+    }
+
+    @GetMapping("/tipos/{id}")
+    public ModelAndView show(@PathVariable Long id){
+        Optional<TipodeProcesso> opcional = this.tipodeProcessoRepository.findById(id);
+        if(opcional.isPresent()){
+            TipodeProcesso tipodeProcesso = opcional.get();
+            ModelAndView mv = new ModelAndView("/tipos/show");
+            mv.addObject("tipodeprocesso",tipodeProcesso);
+            return mv;
+        }
+        return new ModelAndView("redirect:/tipos");
     }
 
 }
