@@ -10,7 +10,7 @@ public class TipodeProcesso {
     @Column(name = "id", nullable = false)
     private Long id;
     @Column(nullable = false)
-    private String Name;
+    private String nome;
 
     public TipodeProcesso(){};
 
@@ -22,19 +22,19 @@ public class TipodeProcesso {
         this.id = id;
     }
 
-    public String getName() {
-        return Name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setNome(String name) {
+        this.nome = name;
     }
 
     @Override
     public String toString() {
         return "TipodeProcesso: {" +
                 "id=" + id +
-                ", Name='" + Name + '\'' +
+                ", Name='" + nome + '\'' +
                 '}';
     }
 }
