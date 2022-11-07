@@ -4,6 +4,7 @@ import br.com.georgefms.processosweb.models.DtoTipodeProcesso;
 import br.com.georgefms.processosweb.models.TipodeProcesso;
 import br.com.georgefms.processosweb.repositories.TipodeProcessoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -100,6 +101,16 @@ public class TpProcessoController {
             return new ModelAndView("redirect:/tipos");
 
 
+        }
+    }
+    @GetMapping("/{id}/delete")
+    public String delete(@PathVariable Long id){
+        try {
+            this.tipodeProcessoRepository.deleteById(id);
+            return "redirect:/tipos";
+        }
+        catch (EmptyResultDataAccessException e){
+            return "redirect:/tipos";
         }
     }
 

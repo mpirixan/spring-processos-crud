@@ -15,6 +15,7 @@
           <th scope="col">Nome</th>
           <th scope="col"></th>
           <th scope="col"></th>
+          <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
@@ -23,6 +24,7 @@
           <td class="col-4" th:text="${tipos.nome}">Nome do Professor</td>
           <td class="col-1"><a th:href="@{/tipos/{tipoId}/edit(tipoId = ${tipos.id})}">Editar</a></td>
           <td class="col-1"><a th:href="@{/tipos/{tipoId}(tipoId = ${tipos.id})}" >Detalhes</a></td>
+          <td class="col-1"><a th:href="@{/tipos/{tipoId}/delete(tipoId = ${tipos.id})}" >Deletar</a></td>
         </tr>
         </tbody>
       </table>
