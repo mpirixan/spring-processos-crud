@@ -25,9 +25,10 @@
         <a class="nav-link"
            th:classappend="${#httpServletRequest.getRequestURI().startsWith('/tipos') ? 'active' : ''}"
            href="/tipos">Tipos de Processo</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Processos</a>
+      </li><li class="nav-item">
+        <a class="nav-link"
+           th:classappend="${#httpServletRequest.getRequestURI().startsWith('/processos') ? 'active' : ''}"
+           href="/processos">Processos</a>
       </li>
     </ul>
   </div>

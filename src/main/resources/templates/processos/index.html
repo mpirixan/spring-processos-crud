@@ -26,9 +26,9 @@
           <td class="col-4" th:text="${item.data}">Data</td>
           <td class="col-4" th:text="${item.objetivo}">Data</td>
           <td class="col-4" th:text="${item.valorRecurso}">Data</td>
-<!--          <td class="col-1"><a th:href="@{/tipos/{tipoId}/edit(tipoId = ${tipos.id})}">Editar</a></td>-->
-<!--          <td class="col-1"><a th:href="@{/tipos/{tipoId}(tipoId = ${tipos.id})}" >Detalhes</a></td>-->
-<!--          <td class="col-1"><a th:href="@{/tipos/{tipoId}/delete(tipoId = ${tipos.id})}" >Deletar</a></td>-->
+          <td class="col-1"><a th:href="@{/processos/{processoId}/edit(processoId = ${item.numero})}">Editar</a></td>
+          <td class="col-1"><a th:href="@{/processos/{processoId}(processoId = ${item.numero})}" >Detalhes</a></td>
+          <td class="col-1"><a th:href="@{/processos/{processoId}/delete(processoId = ${item.numero})}" >Deletar</a></td>
         </tr>
         </tbody>
       </table>
