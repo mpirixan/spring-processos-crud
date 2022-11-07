@@ -21,7 +21,7 @@
         <tr th:each="tipos : ${tipos}">
           <th class="col-1" scope="row" th:text="${tipos.getId()}">ID</th>
           <td class="col-4" th:text="${tipos.nome}">Nome do Professor</td>
-          <td class="col-1"><a href="/">Editar</a></td>
+          <td class="col-1"><a th:href="@{/tipos/{tipoId}/edit(tipoId = ${tipos.id})}">Editar</a></td>
           <td class="col-1"><a th:href="@{/tipos/{tipoId}(tipoId = ${tipos.id})}" >Detalhes</a></td>
         </tr>
         </tbody>
