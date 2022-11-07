@@ -63,6 +63,22 @@ public class DtoProcesso {
         return Processo;
     }
 
+    public Processo toProcesso(Processo processo){
+        processo.setData(this.data);
+        processo.setNumero(this.numero);
+        processo.setValorRecurso(this.valorRecurso);
+        processo.setObjetivo(this.objetivo);
+        return processo;
+    }
+
+    public void fromProcesso(Processo processo){
+
+        this.numero = processo.getNumero();
+        this.data = processo.getData();
+        this.valorRecurso = processo.getValorRecurso();
+        this.objetivo = processo.getObjetivo();
+    }
+
     @Override
     public String toString() {
         return "DtoProcesso: {" +
