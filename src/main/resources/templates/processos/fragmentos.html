@@ -1,0 +1,31 @@
+
+
+<div class="container" th:fragment="form(dtoTipodeProcesso, action)">
+  <div class="row">
+    <form th:action="${action}" method="POST"
+          th:object="${dtoProcesso}">
+      <div class="mb-3">
+        <label class="form-label">Numero</label>
+        <input class="form-control" th:errorclass="is-invalid" type="number" th:field="*{numero}">
+        <div class="invalid-feedback" th:errors="*{numero}"></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Data</label>
+        <input class="form-control" th:errorclass="is-invalid" type="date" placeholder="dd/MM/yyyy" th:field="*{data}">
+        <div class="invalid-feedback" th:errors="*{data}"></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Valor</label>
+        <input class="form-control" th:errorclass="is-invalid" type="number" th:field="*{valorRecurso}">
+        <div class="invalid-feedback" th:errors="*{valorRecurso}"></div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Objetivo</label>
+        <input class="form-control" th:errorclass="is-invalid" type="text" th:field="*{objetivo}">
+        <div class="invalid-feedback" th:errors="*{objetivo}"></div>
+      </div>
+      <button class="btn btn-primary" type="submit">Submeter</button>
+      <a type="button" class="btn btn-outline-danger" href="/processos">Voltar</a>
+    </form>
+  </div>
+</div>
