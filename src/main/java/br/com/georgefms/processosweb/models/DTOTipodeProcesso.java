@@ -24,6 +24,16 @@ public class DtoTipodeProcesso {
         return tipodeProcesso;
     }
 
+    public void fromTipoProcesso(TipodeProcesso tipodeProcesso){
+
+        this.nome = tipodeProcesso.getNome();
+    }
+
+    public TipodeProcesso toTipoProcesso(TipodeProcesso tipodeProcesso){
+        tipodeProcesso.setNome(this.nome);
+        return tipodeProcesso;
+    }
+
     @Override
     public String toString() {
         return "DTOTipodeProcesso{" +
